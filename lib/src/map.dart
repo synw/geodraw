@@ -99,8 +99,14 @@ class DrawerMap extends StatefulWidget {
 
   /// The Flutter Map [TileLayer]
   final TileLayerOptions titleLayer;
+
+  /// The drawer controller
   final GeoDrawController controller;
+
+  /// The center point of the map
   final LatLng center;
+
+  /// The zoom level of the map
   final double zoom;
 
   @override

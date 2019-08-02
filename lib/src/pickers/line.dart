@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:livemap/livemap.dart';
 import 'package:geodraw/geodraw.dart';
 import '../types.dart';
-import '../dialogs.dart';
 
 class _LinePickerState extends State<LinePicker> {
   _LinePickerState({@required this.callback});
@@ -62,9 +61,12 @@ class _LinePickerState extends State<LinePicker> {
   }
 }
 
+/// A line picker
 class LinePicker extends StatefulWidget {
+  /// The callback is optional
   LinePicker({@required this.callback});
 
+  /// The callback will run after the polygon is added
   final AddMapAssetCallback callback;
 
   @override

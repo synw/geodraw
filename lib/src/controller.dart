@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:livemap/livemap.dart';
@@ -7,20 +6,33 @@ import 'package:map_markers/map_markers.dart';
 import 'package:latlong/latlong.dart';
 import 'types.dart';
 
-final rng = Random();
+final _rng = Random();
 
+/// The drawer controller
 class GeoDrawController {
+  /// Provide a [liveMapController]
   GeoDrawController(
       {@required this.liveMapController, this.nameAssets = false});
 
+  /// The map controller
   final LiveMapController liveMapController;
+
+  /// Use named assets
   final bool nameAssets;
 
+  /// Map asset type to add
   MapAssetType currentMapAssetType;
+
+  /// Current line or polygon name
   String currentMapAssetName;
+
+  /// Current map or polygon coordinates
   var currentSerie = <LatLng>[];
+
+  /// Current marker callback
   AddMarkerCallback currentCallback;
 
+  /// Finish drawing a polygon or the line
   void finishDrawing({BuildContext context, AddMapAssetCallback callback}) {
     if (callback != null) {
       callback(context, currentSerie);
@@ -30,6 +42,7 @@ class GeoDrawController {
     currentSerie = <LatLng>[];
   }
 
+  /// Set map tp tap to add a marker
   void addMarkerOnTap({AddMarkerCallback callback}) {
     currentMapAssetType = MapAssetType.marker;
     if (callback != null) {
@@ -37,20 +50,23 @@ class GeoDrawController {
     }
   }
 
+  /// Set map tp tap to add a line
   void addLineOnTap() {
     currentMapAssetType = MapAssetType.line;
     currentSerie = <LatLng>[];
   }
 
+  /// Set map tp tap to add a polygon
   void addPolygonOnTap() {
     currentMapAssetType = MapAssetType.polygon;
     currentSerie = <LatLng>[];
   }
 
+  /// Add a marker on map on action
   void addMarker(
       {@required BuildContext context, @required LatLng point, String name}) {
     if (!nameAssets) {
-      int n = rng.nextInt(10000);
+      final n = _rng.nextInt(10000);
       name = "marker_$n";
     }
     liveMapController.addMarker(
@@ -75,6 +91,7 @@ class GeoDrawController {
     currentMapAssetType = null;
   }
 
+  /// Add a line on map on action
   void addPointToLine(
       {@required BuildContext context, @required LatLng point, String name}) {
     if (nameAssets) {
@@ -84,7 +101,7 @@ class GeoDrawController {
         name = currentMapAssetName;
       }
     } else {
-      int n = rng.nextInt(10000);
+      final n = _rng.nextInt(10000);
       name = "marker_$n";
       currentMapAssetName = name;
     }
@@ -94,6 +111,7 @@ class GeoDrawController {
     liveMapController.addLine(name: name, points: currentSerie..add(point));
   }
 
+  /// Add a polygon on map on action
   void addPointToPolygon(
       {@required BuildContext context, @required LatLng point, String name}) {
     if (nameAssets) {
@@ -103,7 +121,7 @@ class GeoDrawController {
         name = currentMapAssetName;
       }
     } else {
-      int n = rng.nextInt(10000);
+      final n = _rng.nextInt(10000);
       name = "marker_$n";
       currentMapAssetName = name;
     }

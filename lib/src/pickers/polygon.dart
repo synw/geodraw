@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:livemap/livemap.dart';
 import 'package:geodraw/geodraw.dart';
 import '../types.dart';
-import '../dialogs.dart';
 
 class _PolygonPickerState extends State<PolygonPicker> {
   _PolygonPickerState({@required this.callback});
@@ -62,9 +61,12 @@ class _PolygonPickerState extends State<PolygonPicker> {
   }
 }
 
+/// A polygon picker
 class PolygonPicker extends StatefulWidget {
+  /// The callback is optional
   PolygonPicker({@required this.callback});
 
+  /// The callback will run after the polygon is added
   final AddMapAssetCallback callback;
 
   @override

@@ -62,9 +62,12 @@ class _MarkerPickerState extends State<MarkerPicker> {
   }
 }
 
+/// A marker picker
 class MarkerPicker extends StatefulWidget {
+  /// The callback is optional
   MarkerPicker({@required this.callback});
 
+  /// The callback will run after the polygon is added
   final AddMarkerCallback callback;
 
   @override

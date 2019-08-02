@@ -3,6 +3,7 @@ import 'package:latlong/latlong.dart';
 import 'controller.dart';
 import 'types.dart';
 
+/// A dialog to select a name for the map asset to add
 void selectAssetNameDialog(
     BuildContext context, GeoDrawController controller, String label,
     {LatLng point}) {
