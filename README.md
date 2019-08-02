@@ -1,5 +1,7 @@
 # Geodraw
 
+[![pub package](https://img.shields.io/pub/v/geodraw.svg)](https://pub.dartlang.org/packages/geodraw)
+
 Draw markers, lines and polygons on a map.
 
 ## Marker picker
