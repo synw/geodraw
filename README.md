@@ -70,3 +70,15 @@ class PolygonPage extends StatelessWidget {
   }
 }
 ```
+
+**Note**: the map will autocenter on current position unless a `center` is provided. Example:
+
+```dart
+MarkerPicker(
+    center: LatLng(0, 51.0);
+    zoom: 16.0,
+    callback: (BuildContext context, LatLng point) {
+       print("Point: $point");
+    },
+);
+```
