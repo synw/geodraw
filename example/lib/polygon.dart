@@ -11,7 +11,7 @@ class PolygonPage extends StatelessWidget {
         for (final point in points) {
           print("$point");
         }
-        Navigator.of(context).pop();
+        //Navigator.of(context).pop();
       },
     );
   }

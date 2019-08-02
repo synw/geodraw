@@ -8,7 +8,7 @@ class MarkerPage extends StatelessWidget {
     return MarkerPicker(
       callback: (BuildContext context, LatLng point) {
         print("POINT: $point");
-        Navigator.of(context).pop();
+        //Navigator.of(context).pop();
       },
     );
   }
